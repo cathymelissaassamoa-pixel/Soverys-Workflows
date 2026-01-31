@@ -22,6 +22,8 @@ Chaque fichier `.json` dans ce dépôt peut être importé via la fonction "Impo
 * **Vitesse :** Traitement d'un contrat de 40 pages en moins de 10 secondes.
 * **Sécurité :** Zéro donnée transmise à des API tierces (OpenAI/Google).
 
+![Aperçu du Workflow Soverys](./image.png)
+
 * ---
 ### 💡 Note sur les versions
 Ce workflow est optimisé pour l'infrastructure **Soverys-Full**. Pour les clients utilisant l'offre **Soverys-Light**, une version sans nœud d'IA (remplacée par du Regex ou des filtres simples) est également disponible sur demande.
