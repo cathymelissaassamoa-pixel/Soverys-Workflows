@@ -1,0 +1,9 @@
+# C'est le fichier "code" de n8n
+
+{
+  "nodes": [
+    { "parameters": { "path": "/data/input" }, "name": "Entrée Document", "type": "n8n-nodes-base.localFileTrigger" },
+    { "parameters": { "model": "mistral" }, "name": "Analyse IA Locale", "type": "n8n-nodes-base.ollama" },
+    { "parameters": { "operation": "append" }, "name": "Base de Données", "type": "n8n-nodes-base.googleSheets" }
+  ]
+}
