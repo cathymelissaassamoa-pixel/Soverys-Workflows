@@ -1,0 +1,55 @@
+# 🚀 Workflow d'Automatisation de Gestion des Candidatures (n8n & Airtable)
+
+Un flux de travail (workflow) automatisé de A à Z conçu avec **n8n** pour centraliser, traiter et notifier l'équipe lors des inscriptions de nouveaux bénévoles pour l'association **Free Association**.
+
+---
+
+## 📌 Présentation du Projet
+
+Lors de l'inscription d'un bénévole, la gestion manuelle des données peut s'avérer fastidieuse et source d'erreurs. Ce projet met en place un pipeline d'automatisation complet qui :
+1. Collecte les informations via un formulaire dynamique.
+2. Enregistre la candidature de manière structurée dans une base **Airtable**.
+3. Envoie un e-mail de confirmation personnalisé au candidat via **Gmail**.
+4. Alerte immédiatement l'équipe sur un canal **Telegram** dédié.
+
+---
+
+## 🛠️ Architecture du Workflow & Technologies
+
+```
+[ Formulaire n8n ] ──► [ Airtable (Base de données) ] ──► [ Gmail (E-mail automatique) ] ──► [ Telegram (Notification) ]
+```
+
+### Stack Technique :
+- **n8n** : Orchestrateur de workflow no-code / low-code.
+- **Airtable** : Gestionnaire de base de données relationnelle pour le suivi des candidatures.
+- **Gmail / SMTP** : Notification personnalisée à destination du postulant.
+- **Telegram Bot API** : Instant messaging pour alerter l'équipe en temps réel.
+
+---
+
+## 🔍 Détaillé des Étapes du Pipeline
+
+1. **Trigger — Sur la soumission du formulaire (`n8n Form`)**
+   - Champs collectés : *Prénom, Nom, Date de naissance, E-mail, Mot de passe*.
+2. **Stockage — Création du dossier (`Airtable`)**
+   - Mapping dynamique des données vers la table `Bénévoles`.
+   - Assignation automatique du statut de validation (`Validé`) et de l'état de confirmation (`En attente`).
+3. **Communication Candidat — Envoi d'un e-mail (`Gmail Node`)**
+   - Modèle HTML dynamique avec intégration des variables : `{{ $json.fields.Prénom }}`.
+4. **Alerte Équipe — Message instantané (`Telegram Node`)**
+   - Envoi d'une notification push sur le groupe Telegram de l'association avec le nom complet du nouveau bénévole.
+
+---
+
+## 📊 Impact & Bénéfices
+
+- ⚡ **Gain de temps** : Suppression à 100% de la saisie manuelle.
+- 🎯 **Réactivité** : Confirmation instantanée pour le candidat et notification directe pour le pôle RH.
+- 📁 **Centralisation** : Données propres, structurées et exploitables immédiatement dans Airtable.
+
+---
+### 🎬 Aperçu du Workflow
+
+![Aperçu du workflow n8n](workflow.jpg)
+*Projet réalisé dans le cadre d'un cas d'usage avec Soverys.*
